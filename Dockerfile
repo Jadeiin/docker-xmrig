@@ -1,7 +1,7 @@
 FROM nvcr.io/nvidia/l4t-jetpack:r35.4.1 as build-cuda-plugin
 LABEL maintainer="Jadeiin <92222981+Jadeiin@users.noreply.github.com>"
 
-ARG CUDA_PLUGIN_VERSION=6.22.0
+ARG CUDA_PLUGIN_VERSION=6.22.0-mo1
 RUN set -xe; \
   apt-get update; \
   apt-get install -y cmake automake libtool autoconf; \
