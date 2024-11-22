@@ -1,13 +1,13 @@
 FROM nvcr.io/nvidia/l4t-jetpack:r35.4.1 as build-cuda-plugin
 LABEL maintainer="Jadeiin <92222981+Jadeiin@users.noreply.github.com>"
 
-ARG CUDA_PLUGIN_VERSION=6.22.0
+ARG CUDA_PLUGIN_VERSION=6.22.0-mo3
 RUN set -xe; \
   apt-get update; \
   apt-get install -y cmake automake libtool autoconf; \
   rm -rf /var/lib/apt/lists/*; \
   apt-get clean; \
-  wget https://github.com/xmrig/xmrig-cuda/archive/refs/tags/v${CUDA_PLUGIN_VERSION}.tar.gz; \
+  wget https://github.com/MoneroOcean/xmrig-cuda/archive/refs/tags/v${CUDA_PLUGIN_VERSION}.tar.gz; \
   tar xf v${CUDA_PLUGIN_VERSION}.tar.gz; \
   mv xmrig-cuda-${CUDA_PLUGIN_VERSION} xmrig-cuda; \
   cd xmrig-cuda; \
@@ -26,7 +26,7 @@ RUN set -xe; \
   apt-get install -y cmake automake libtool autoconf; \
   rm -rf /var/lib/apt/lists/*; \
   apt-get clean; \
-  wget https://github.com/xmrig/xmrig/archive/refs/tags/v${XMRIG_VERSION}.tar.gz; \
+  wget https://github.com/MoneroOcean/xmrig/archive/refs/tags/v${XMRIG_VERSION}.tar.gz; \
   tar xf v${XMRIG_VERSION}.tar.gz; \
   mv xmrig-${XMRIG_VERSION} /xmrig; \
   cd /xmrig; \
